@@ -1,10 +1,22 @@
 # IF ANY CHANGES ARE MADE TO THIS FILE THE DOCKER CONTAINER ON DOCKERHUB MUST ALSO BE UPDATED WITH THE NEW BUILD!
 
-# USE CODECSNIFFER AS BASE IMAGE
+# USE ALPINE LINUX 3.20.0 AS THE BASE IMAGE
 
-FROM pipelinecomponents/php-codesniffer
+FROM alpine:3.20.0
 
-# SET THE WORKING DIRECTORY FOR THE CONTAINER
+# INSTALL DEPENDENCIES AND REQUIRED PHP EXTENSIONS
+
+RUN apk update && \
+    apk add --no-cache \
+    php php-cli php-phar php-json php-mbstring php-tokenizer php-xml php-xmlwriter php-simplexml wget
+
+# INSTALL PHP CODE SNINFFER (PHPCS)
+
+RUN wget https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.2/phpcs.phar && \
+    chmod +x phpcs.phar && \
+    mv phpcs.phar /usr/local/bin/phpcs
+
+# SET WORKING DIRECTORY
 
 WORKDIR /app
 

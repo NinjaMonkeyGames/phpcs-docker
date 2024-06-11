@@ -16,4 +16,4 @@ jobs:                                             # Initialise job
       - name: Run PHPCS                           # Set PHPCS label
         run: |                                    # Copy PHPCS config file then lint all PHP files 
              cp /app/phpcs.xml $GITHUB_WORKSPACE 
-             phpcs .                              
+             phpcs --colors --standard=PSR12 .                              
