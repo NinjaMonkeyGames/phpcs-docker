@@ -20,7 +20,7 @@ cp /app/phpcs.xml $GITHUB_WORKSPACE
 Alternately you can use the following command to use your own configuration file.
 
 ```shell
-run: phpcs --colors phpcs.xml . 
+run: phpcs --colors --standard=phpcs.xml .
 ```
 
 See links below for more information about PHPCS and Alpine Linux.
@@ -78,6 +78,7 @@ This project uses a sequential versioning system.
 |----------------|-----------------------------------------------------------------------------------------------------|
 | 0.0.0.0        | Base files included.                                                                                |
 | 0.0.0.1        | Docker image is now built directly from Alpine and installs only the minimal dependencies.          |
+| 0.0.0.2        | Updated config, code example.                                                                       |
 
 ---
 

@@ -12,7 +12,7 @@ RUN apk update && \
 
 # INSTALL PHP CODE SNINFFER (PHPCS)
 
-RUN wget https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.2/phpcs.phar && \
+RUN wget --progress=dot:giga https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.2/phpcs.phar && \
     chmod +x phpcs.phar && \
     mv phpcs.phar /usr/local/bin/phpcs
 
