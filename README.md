@@ -2,16 +2,16 @@
 
 ## What is this repository for? ##
 
-The purpose of this repository is to maintain control over versions of phpcs. This maintains uniformity-
-when enforcing coding standards and formatting rules. This allows for easier upgrades and prevents newer versions from
-breaking the pipeline.
+The purpose of this repository is to maintain control over versions of PHPCS. This maintains uniformity when enforcing
+coding standards and formatting rules. This allows for easier upgrades and prevents newer versions from breaking the
+pipeline.
 
 ---
 
 ## Configuration information ##
 
-There is a 'phpcs.xml' file containing the phpcs configuration in the root of the project directory. You can
-use the following YAML line to copy this into your project directory.
+There is a 'phpcs.xml' file containing the PHPCS configuration in the root of the project directory. You can use the
+following YAML line to copy this into your project directory.
 
 ```shell
 cp /app/phpcs.xml $GITHUB_WORKSPACE
@@ -40,8 +40,9 @@ See links below for more information about PHPCS and Alpine Linux.
 
 * **3rd Party links:**
 
-  * **Alpine source landing page:**   <https://hub.docker.com/_/alpine>
-  * **PHPCS:**                        <https://github.com/squizlabs/PHP_CodeSniffer>
+  * **Alpine source pull address:**   docker pull alpine:3.20.0
+
+  * **GitHub PHPCS:**                 <https://github.com/squizlabs/PHP_CodeSniffer>
   * **VSC Plugin:**                   <https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs>
 
 ---
@@ -51,7 +52,7 @@ See links below for more information about PHPCS and Alpine Linux.
 * Alpine Linux                v3.20.0
 * PHP                         v8.3.8
 * Zend                        v4.3.8
-* PHPCS                       v3.7.2
+* PHPCS                       v3.7.2 - Based on the PSR-12 Standard
 
 ---
 
@@ -61,6 +62,7 @@ See links below for more information about PHPCS and Alpine Linux.
 |---------------------------------------|-------|----------------------------------------------------------------------|
 | > php-fail                            |   49  | Contains examples of every possible PHP error.                       |
 | phpcs.xml                             |   1   | Contains PHP rule configuration.                                     |
+| > .git                                |   57  | Contains git configuration files.                                    |
 | > .github > workflows > pipeline.yml  |   1   | Lints all PHP files in docker.                                       |
 | dockerfile                            |   1   | Information on how to build docker.                                  |
 | README.md                             |   1   | Contains information about the project.                              |
@@ -79,6 +81,7 @@ This project uses a sequential versioning system.
 | 0.0.0.0        | Base files included.                                                                                |
 | 0.0.0.1        | Docker image is now built directly from Alpine and installs only the minimal dependencies.          |
 | 0.0.0.2        | Updated config, code example.                                                                       |
+| 0.0.0.3        | Internal adjustment to make the project structure consistent across all repositories in the project.|
 
 ---
 

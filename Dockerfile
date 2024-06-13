@@ -16,7 +16,7 @@ RUN wget --progress=dot:giga https://github.com/squizlabs/PHP_CodeSniffer/releas
     chmod +x phpcs.phar && \
     mv phpcs.phar /usr/local/bin/phpcs
 
-# SET WORKING DIRECTORY
+# SET THE WORKING DIRECTORY FOR THE CONTAINER
 
 WORKDIR /app
 

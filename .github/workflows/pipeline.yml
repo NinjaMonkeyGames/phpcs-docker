@@ -6,14 +6,15 @@ jobs:                                             # Initialise job
   lint:                                           # Define a job named 'lint'
     runs-on: ubuntu-latest                        # Specifies the type of VM to provision
 
-    container:
-      image: monkeyknuckles/phpcs                 # Specifies the Docker container to use
+    container:                                    # Initialize container
+      image: monkeyknuckles/phpcs                 # Points to PHPCS container
 
-    steps:
-      - name: Checkout code                       # Set Checkout code label text
-        uses: actions/checkout@v3                 # Set Github runner version
+    steps:                                        # List of steps to execute
+      - name: Checkout code                       # Checkout code label text
+        uses: actions/checkout@v3                 # Use the checkout action to clone the repository
 
-      - name: Run PHPCS                           # Set PHPCS label
-        run: |                                    # Copy PHPCS config file then lint all PHP files 
-             cp /app/phpcs.xml $GITHUB_WORKSPACE 
-             phpcs --colors --standard=PSR12 .                              
+      - name: Copy PHPCS configuration file       # Set PHPCS configuration file label text
+        run: cp /app/phpcs.xml $GITHUB_WORKSPACE  # Include the PHPCS configuration file in the docker build
+              
+      - name: Run Lint PHPCS                      # Set lint PHPCS label text
+        run: phpcs --colors --standard=PSR12 .    # Lint all PHP files using a PSR-12 base
